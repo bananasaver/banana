@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "PlayStation 5 Slim",
+    "subtitle": "Disc Edition",
+    "category": "Gaming",
+    "retailer": "Currys",
+    "price": 399.99,
+    "oldPrice": 479.99,
+    "badge": "HOT DEAL",
+    "badgeClass": "hot",
+    "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=700&q=80",
+    "url": "#"
+  },
+  {
+    "id": 2,
+    "name": "ASUS ROG Strix G16",
+    "subtitle": "Gaming Laptop • RTX graphics",
+    "category": "Laptops",
+    "retailer": "Amazon",
+    "price": 999,
+    "oldPrice": 1249,
+    "badge": "GREAT PRICE",
+    "badgeClass": "good",
+    "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=700&q=80",
+    "url": "#"
+  },
+  {
+    "id": 3,
+    "name": "MSI GeForce RTX 4070",
+    "subtitle": "12GB Gaming Graphics",
+    "category": "PC Components",
+    "retailer": "Scan",
+    "price": 549.99,
+    "oldPrice": 649.99,
+    "badge": "SAVE 15%",
+    "badgeClass": "save",
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=700&q=80",
+    "url": "#"
+  },
+  {
+    "id": 4,
+    "name": "Gaming Headset",
+    "subtitle": "Wireless Premium Audio",
+    "category": "Headphones",
+    "retailer": "Argos",
+    "price": 149.99,
+    "oldPrice": 199.99,
+    "badge": "TOP RATED",
+    "badgeClass": "rate",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
+    "url": "#"
+  },
+  {
+    "id": 5,
+    "name": "UltraGear 27\" Monitor",
+    "subtitle": "1440p • 165Hz IPS",
+    "category": "Monitors",
+    "retailer": "Amazon",
+    "price": 249.99,
+    "oldPrice": 299.99,
+    "badge": "LOWEST PRICE",
+    "badgeClass": "good",
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=700&q=80",
+    "url": "#"
+  }
+]
