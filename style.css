@@ -46,7 +46,7 @@ button,input { font:inherit; }
 .hero-btn { display:inline-flex; gap:20px; align-items:center; background:#111; color:#fff; padding:14px 20px; border-radius:12px; font-weight:800; transition:.2s; }
 .hero-btn:hover { transform:translateY(-2px); }
 .hero-art { position:absolute; width:650px; height:100%; right:5%; top:0; }
-.hero-mascot { position:absolute; height:450px; width:auto; right:70px; bottom:-4px; z-index:1; filter:drop-shadow(12px 15px 8px rgba(0,0,0,.14)); }
+.hero-mascot { position:absolute; height:450px; width:auto; right:120px; bottom:-4px; z-index:1; filter:drop-shadow(12px 15px 8px rgba(0,0,0,.14)); }
 .price-burst { position:absolute; right:12px; top:42px; z-index:3; background:#111; color:#fff; padding:18px 28px; border-radius:50%; font-weight:900; text-align:center; transform:rotate(5deg); box-shadow:8px 8px 0 rgba(255,255,255,.5); }
 .price-burst span { color:var(--yellow); }
 
