@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banana Deals — Peeling Back The Prices</title>
+  <meta name="description" content="Banana Deals finds great UK tech and gaming deals so you don't have to.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Banana Deals home">
+        <span class="brand-icon" aria-hidden="true">🍌</span>
+        <span>
+          <strong>BANANA</strong>
+          <em>DEALS</em>
+          <small>Peeling Back The Prices</small>
+        </span>
+      </a>
+
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
+        <input id="searchInput" type="search" placeholder="Search for tech, gaming, brands and more..." aria-label="Search deals">
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#deals" class="nav-deal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5V5a1 1 0 0 1 1-1h7.5L20 11.5 12.5 19 4 10.5z"></path><circle cx="8" cy="8" r="1.2"></circle></svg>Deal of the Day</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="trust-strip">
+    <div><span class="trust-icon">£</span><strong>Best Prices</strong><small>We compare so you save more</small></div>
+    <div><span class="trust-icon">★</span><strong>Top Brands</strong><small>All the brands you love</small></div>
+    <div><span class="trust-icon">✓</span><strong>Trusted Deals</strong><small>Handpicked, checked, updated</small></div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">UK TECH &amp; GAMING DEALS</p>
+        <h1>PEELING BACK<br><span>THE PRICES</span></h1>
+        <p>We find the best tech &amp; gaming deals so you don't have to.</p>
+        <a class="hero-btn" href="#deals">Shop Top Deals <b>→</b></a>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="price-burst">REAL DEALS.<br><span>REAL SAVINGS.</span></div>
+        <img class="hero-mascot" src="assets/banana-mascot-original.png" alt="">
+      </div>
+    </section>
+
+    <section class="content-card categories-card" aria-label="Browse categories">
+      <div class="category-heading">
+        <div class="browse-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"></path></svg>
+          <strong>BROWSE<br><b>CATEGORIES</b></strong>
+        </div>
+        <div id="categories" class="categories"></div>
+      </div>
+    </section>
+
+    <section id="deals" class="content-card deals-section">
+      <div class="section-title">
+        <div>
+          <p class="section-kicker">DEAL OF THE DAY</p>
+          <h2>TOP DEALS RIGHT NOW</h2>
+        </div>
+        <button id="clearSearch" class="text-btn">View All Deals <span>→</span></button>
+      </div>
+      <div id="dealGrid" class="deal-grid"></div>
+      <p id="noResults" class="no-results" hidden>No deals found. Try another search.</p>
+    </section>
+
+    <section class="editorial-grid" id="reviews">
+      <article class="editorial-panel reviews-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">WHAT'S NEW</p>
+            <h2>NEW TECH REVIEWS</h2>
+          </div>
+          <span class="panel-mark">✦</span>
+        </div>
+        <div class="review-list">
+          <a class="review-item" href="#">
+            <span class="review-icon vacuum-icon">V</span>
+            <span><strong>New cordless vacuum reviews</strong><small>Which mid-range models are actually worth the money?</small><b>Read Review →</b></span>
+          </a>
+          <a class="review-item" href="#">
+            <span class="review-icon laptop-icon">L</span>
+            <span><strong>Latest laptop reviews</strong><small>Performance, battery life and value without the waffle.</small><b>Read Review →</b></span>
+          </a>
+          <a class="review-item" href="#">
+            <span class="review-icon audio-icon">A</span>
+            <span><strong>New audio reviews</strong><small>Headphones and earbuds tested for everyday use.</small><b>Read Review →</b></span>
+          </a>
+        </div>
+      </article>
+
+      <article class="editorial-panel rankings-panel" id="rankings">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">THE BANANA VERDICT</p>
+            <h2>TECH RANKINGS BY BANANAS</h2>
+          </div>
+          <span class="banana-score">🍌</span>
+        </div>
+        <p class="rank-intro">We don't try to rank everything. We compare the products people actually have to choose between.</p>
+        <div class="ranking-list">
+          <a href="#" class="ranking-item"><span class="rank-number">01</span><span><strong>Cordless Vacuums</strong><small>Dyson V12 Detect Slim vs Shark Stratos</small></span><b>Compare →</b></a>
+          <a href="#" class="ranking-item"><span class="rank-number">02</span><span><strong>Gaming Laptops</strong><small>ASUS ROG Zephyrus G16 vs Lenovo Legion Slim</small></span><b>Compare →</b></a>
+          <a href="#" class="ranking-item"><span class="rank-number">03</span><span><strong>Noise-Cancelling Headphones</strong><small>Premium models, judged side by side</small></span><b>Compare →</b></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="benefits">
+      <div><span class="benefit-icon">B</span><strong>Peeling Back The Prices</strong><small>We cut through the noise to bring you the best deals.</small></div>
+      <div><span class="benefit-icon">↻</span><strong>Updated Regularly</strong><small>Prices change. We keep our deals fresh.</small></div>
+      <div><span class="benefit-icon">★</span><strong>Top Brands Only</strong><small>Quality tech &amp; gaming gear from brands you trust.</small></div>
+      <div><span class="benefit-icon">£</span><strong>Save More</strong><small>More saving. More gaming. More banana.</small></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div class="footer-brand"><span>🍌</span> <strong>BANANA DEALS</strong></div>
+        <p class="footer-tagline">Peeling Back The Prices.</p>
+        <p class="footer-description">We find the best UK tech and gaming deals so you don't have to.</p>
+      </div>
+
+      <nav class="footer-column" aria-label="Explore Banana Deals">
+        <h3>Explore</h3>
+        <a href="#deals">Deal of the Day</a>
+        <a href="#categories">Categories</a>
+        <a href="#reviews">New Tech Reviews</a>
+        <a href="#rankings">Tech Rankings</a>
+      </nav>
+
+      <nav class="footer-column" aria-label="Banana Deals information">
+        <h3>Banana</h3>
+        <a href="about.html">About Us</a>
+        <a href="info.html">How It Works</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <nav class="footer-column" aria-label="Legal information">
+        <h3>Important</h3>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="disclaimer.html#affiliate">Affiliate Disclosure</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="cookies.html">Cookie Policy</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <strong>Prices and availability can change.</strong> Always check the retailer before buying.
+      </div>
+      <div>© 2026 Banana Deals. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
