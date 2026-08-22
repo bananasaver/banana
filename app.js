@@ -27,10 +27,6 @@ function categoryIcon(type) {
         <circle cx="89" cy="38" r="4" fill="#4b8cff"/>
         <circle cx="79" cy="45" r="4" fill="#ffd400"/>
         <circle cx="69" cy="38" r="4" fill="#69c96b"/>
-        <circle cx="61" cy="53" r="6" fill="#343434"/>
-        <circle cx="61" cy="53" r="3" fill="#777"/>
-        <circle cx="78" cy="53" r="6" fill="#343434"/>
-        <circle cx="78" cy="53" r="3" fill="#777"/>
         <rect x="55" y="28" width="10" height="4" rx="2" fill="#333"/>
       </svg>`,
     computing: `
