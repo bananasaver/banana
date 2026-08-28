@@ -1,1 +1,1 @@
-Replace the HTML files in this patch. No CSS, JS, data, or assets are required from this patch. Add your peeled mascot as assets/banana-mascot-peeled.png.
+Banana Saver final mascot/layout update. Replace the included HTML files and style.css only. Do not replace app.js, deals.json, or assets. Add your finished peeled mascot later as assets/banana-mascot-peeled.png. Deal pages use peeled mascot; normal information pages use banana-mascot-clean.png; News and Reviews use neither. The five-Banana rating remains on Reviews only.

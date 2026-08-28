@@ -109,9 +109,59 @@ footer { background:#111; color:#ddd; padding:30px 6%; margin-top:30px; }.footer
 }
 @media (max-width:450px) { .deal-grid { grid-template-columns:1fr; }.brand { justify-content:center; }.hero-mascot { height:300px; right:55px; }.price-burst { right:0; top:30px; padding:13px 18px; font-size:12px; } }
 
-/* Banana Saver brand cleanup */
-.brand strong { font-size:0; letter-spacing:0; }
-.brand strong::after { content:"BANANA SAVER"; font-size:28px; letter-spacing:-1px; }
-.brand em, .brand small { display:none !important; }
-/* The peeled mascot belongs on the homepage hero only. */
-.peeled-hero-mascot { display:none !important; }
+/* Banana complete-site additions */
+.page-main{max-width:1280px;margin:0 auto;padding:42px 5% 70px}
+.page-hero{background:#fff7c7;border-radius:22px;padding:42px 46px;margin-bottom:28px;position:relative;overflow:hidden}
+.page-hero:after{content:none}
+.page-kicker{font-size:12px;font-weight:900;letter-spacing:1.5px;margin:0 0 8px}
+.page-main h1{font-family:Anton,Impact,sans-serif;font-size:54px;line-height:1;margin:0 0 12px}
+.page-main h2{font-family:Anton,Impact,sans-serif;font-size:30px;margin:0 0 10px}
+.page-main h3{font-size:18px;margin:20px 0 7px}
+.page-main p,.page-main li{color:#444;line-height:1.7;font-size:15px}
+.page-main ul{padding-left:22px}
+.page-card{background:#fff;border:1px solid #e7e7e1;border-radius:18px;padding:28px 30px;margin-bottom:20px}
+.page-note{background:#f4f4ef;border-left:4px solid #ffd400;padding:14px 16px;border-radius:4px;margin:18px 0}
+.category-intro{display:grid;grid-template-columns:1.6fr .8fr;gap:22px;margin-bottom:25px}
+.category-summary{background:#111;color:#fff;border-radius:18px;padding:25px}
+.category-summary h3{color:#ffd400;margin-top:0}
+.category-summary p{color:#ddd}
+.category-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.category-links a{background:#ffd400;color:#111;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900}
+.category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.deal-card-pro{background:#fff;border:1px solid #e4e4df;border-radius:18px;padding:16px;display:flex;flex-direction:column;min-height:100%}
+.deal-card-pro .product-image{height:190px;background:#f6f6f3;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:13px}
+.deal-card-pro .product-image img{width:100%;height:100%;object-fit:cover}
+.deal-card-pro h3{font-family:Inter,sans-serif;font-size:18px;margin:0 0 4px}
+.deal-card-pro .subtitle{font-size:13px;color:#666;min-height:38px}
+.pro-price{font-size:25px;font-weight:900;margin-top:11px}.pro-price del{font-size:13px;color:#999;margin-left:7px}.pro-saving{color:#16853b;font-weight:900;font-size:13px;margin:3px 0 12px}
+.banana-rating{font-size:16px;letter-spacing:1px;margin:2px 0 12px}.deal-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto}.deal-actions a{background:#111;color:#ffd400;padding:10px 13px;border-radius:8px;font-size:12px;font-weight:900}.retailer-label{font-size:11px;color:#777;font-weight:800}
+.section-band{display:flex;align-items:end;justify-content:space-between;margin:30px 0 14px}.section-band h2{margin:0}.section-band a{font-size:12px;font-weight:900}
+.editorial-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.editorial-card{border:1px solid #e4e4df;border-radius:18px;background:#fff;padding:22px}.editorial-card .tag{font-size:10px;font-weight:900;letter-spacing:1px}.editorial-card h3{font-family:Anton,Impact,sans-serif;font-size:25px;line-height:1.05}.editorial-card a{font-weight:900;font-size:12px}
+.deal-detail{display:grid;grid-template-columns:1fr 1fr;gap:25px}.deal-detail-image{background:#f6f6f3;border-radius:20px;min-height:450px;display:flex;align-items:center;justify-content:center;overflow:hidden}.deal-detail-image img{width:100%;height:100%;object-fit:cover}.deal-detail-copy{padding:10px}.deal-detail-copy h1{font-family:Anton,Impact,sans-serif;font-size:50px}.deal-price-big{font-size:42px;font-weight:900}.deal-old{color:#999;font-size:18px;margin-left:8px}.deal-verdict{background:#fff7c7;border-radius:14px;padding:16px;margin:20px 0}.deal-button{display:inline-block;background:#ffd400;color:#111;padding:14px 22px;border-radius:10px;font-weight:900;margin-top:10px}.spec-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.spec-list div{background:#f6f6f3;padding:11px;border-radius:9px;font-size:13px}.spec-list strong{display:block;font-size:10px;text-transform:uppercase;color:#777;margin-bottom:3px}
+.search-page .search-big{display:flex;gap:8px;margin-bottom:25px}.search-big input{flex:1;padding:14px;border:1px solid #ccc;border-radius:9px;font:inherit}.search-big button{border:0;background:#111;color:#ffd400;border-radius:9px;padding:0 18px;font-weight:900}
+.rank-table{display:grid;gap:12px}.rank-row{display:grid;grid-template-columns:60px 1fr auto;gap:15px;align-items:center;border:1px solid #e4e4df;border-radius:14px;padding:15px}.rank-row .num{font-family:Anton;font-size:30px}.rank-row .score{font-size:18px;font-weight:900}
+.review-full{max-width:900px}.review-meta{font-size:12px;color:#777;font-weight:800;margin-bottom:20px}.review-callout{background:#111;color:#fff;border-radius:16px;padding:22px;margin:22px 0}.review-callout strong{color:#ffd400}
+.contact-form{display:grid;gap:12px}.contact-form label{font-weight:800;font-size:13px}.contact-form input,.contact-form textarea{width:100%;box-sizing:border-box;border:1px solid #ccc;border-radius:9px;padding:12px;font:inherit}.contact-form textarea{min-height:150px;resize:vertical}.contact-form button{width:max-content;border:0;background:#111;color:#ffd400;border-radius:9px;padding:12px 20px;font-weight:900;cursor:pointer}
+@media(max-width:800px){.category-intro,.deal-detail{grid-template-columns:1fr}.category-grid,.editorial-list{grid-template-columns:repeat(2,minmax(0,1fr))}.page-main h1,.deal-detail-copy h1{font-size:42px}}
+@media(max-width:520px){.category-grid,.editorial-list{grid-template-columns:1fr}.page-hero{padding:30px 24px}.page-main h1,.deal-detail-copy h1{font-size:36px}.deal-detail-image{min-height:300px}.spec-list{grid-template-columns:1fr}}
+
+/* Banana refinement pass */
+.footer-inner{display:grid;grid-template-columns:1.5fr repeat(3,minmax(150px,1fr));gap:42px;align-items:start;padding:8px 0 28px}
+.footer-main{max-width:320px}.footer-column{display:flex;flex-direction:column;gap:10px;align-items:flex-start}.footer-column h3{margin:0 0 6px;color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.7px}.footer-column a{font-size:12px;color:#cfcfcf;line-height:1.35}.footer-column a:hover{color:var(--yellow)}.footer-description{color:#aaa;line-height:1.5;font-size:12px}.footer-bottom{max-width:1340px;margin:auto;border-top:1px solid #2d2d2d;padding-top:18px;display:flex;justify-content:space-between;gap:20px;font-size:11px;color:#999}.footer-bottom strong{color:#ddd}
+.panel-intro{color:#555;font-size:13px;line-height:1.5;margin:0 0 8px}.news-list{display:grid}.news-item{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #eee}.news-item:last-child{border-bottom:0}.news-date{font-family:Anton,Impact,sans-serif;font-size:20px;color:#bbb}.news-item strong{display:block;font-size:14px;margin:2px 0 4px}.news-item small{display:block;color:#666;font-size:11px;line-height:1.35}.news-more{display:inline-block;color:#1683dc;font-size:11px;font-weight:900;margin-top:8px}
+.browse-category{margin-bottom:38px}.browse-category .section-band{margin-bottom:15px}.browse-category .section-band a{background:#111;color:var(--yellow);padding:9px 12px;border-radius:8px}.browse-category .section-band a:hover{background:var(--yellow);color:#111}
+.peeled-hero-mascot{position:absolute;right:34px;bottom:-12px;width:190px;height:170px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}.peeled-hero-mascot img{max-width:100%;max-height:100%;object-fit:contain}.peeled-hero-mascot.missing{display:none}.category-mascot{background:#111;color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:center;min-height:100%}.category-mascot strong{color:var(--yellow);font-size:12px;letter-spacing:1px}.category-mascot p{color:#ddd!important;font-size:13px!important;line-height:1.5!important}.peeled-mascot-slot{width:100%;min-height:110px;display:flex;justify-content:center;align-items:center}.peeled-mascot-slot img{max-width:180px;max-height:150px;object-fit:contain}.peeled-mascot-slot.missing{display:none}.deal-why{background:#f7f7f3;border-left:4px solid var(--yellow);border-radius:10px;padding:14px 16px;margin:20px 0}.deal-why p{margin:5px 0 0}.deal-verdict{display:none}.review-method{max-width:650px}.review-method-card{background:#fff}
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr;gap:28px}.footer-main{grid-column:1/-1;max-width:600px}.peeled-hero-mascot{right:12px;opacity:.9}}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr;gap:24px}.footer-bottom{flex-direction:column}.peeled-hero-mascot{display:none}}
+@media(max-width:520px){.footer-inner{grid-template-columns:1fr}.footer-main{grid-column:auto}.footer-column{gap:8px}.footer-column h3{margin-top:4px}.browse-category .section-band{align-items:flex-start;gap:12px;flex-direction:column}}
+
+.deal-card-pro{position:relative}.deal-card-pro .badge{position:relative;top:auto;left:auto;align-self:flex-start;margin-bottom:10px;width:max-content}.deal-card-pro .product-image{position:relative}
+
+@media(max-width:700px){.normal-hero-mascot{width:110px;height:110px;right:12px;bottom:-5px;opacity:.95}.page-hero{padding-right:125px}}
+
+/* Final Banana Saver mascot layout */
+.normal-hero-mascot{position:absolute;right:34px;bottom:-8px;width:150px;height:150px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;z-index:2}
+.normal-hero-mascot img{max-width:100%;max-height:100%;object-fit:contain}
+.page-hero{background:var(--yellow)}
+.page-hero > *:not(.normal-hero-mascot):not(.peeled-hero-mascot){position:relative;z-index:3}
+@media(max-width:700px){.normal-hero-mascot{width:110px;height:110px;right:12px;bottom:-5px;opacity:.95}.page-hero{padding-right:125px}}
