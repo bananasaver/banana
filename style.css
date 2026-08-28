@@ -23,7 +23,9 @@ button,input { font:inherit; }
 .brand small { display:block; font-size:9px; margin-top:4px; color:#ddd; }
 .search-wrap { display:flex; align-items:center; background:#fff; border-radius:13px; padding:4px; max-width:680px; width:100%; }
 .search-icon { width:20px; height:20px; margin:0 4px 0 10px; fill:none; stroke:#777; stroke-width:1.8; }
-.search-wrap input { flex:1; border:0; outline:0; padding:12px 10px; min-width:0; }
+.search-wrap input { flex:1; border:0; outline:0; padding:12px 10px; min-width:0; color:#111; }
+.search-wrap input::placeholder { color:#111; opacity:1; }
+.search-wrap button { color:#111; }
 .search-wrap button { border:0; background:var(--yellow); border-radius:10px; padding:11px 22px; font-weight:800; cursor:pointer; }
 .site-header nav { display:flex; gap:22px; font-weight:800; white-space:nowrap; }
 .site-header nav a:hover { color:var(--yellow); }
