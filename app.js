@@ -1,4 +1,59 @@
+async function loadSiteComponents() {
+  const header = document.getElementById("site-header");
+  const footer = document.getElementById("site-footer");
 
+  if (header) {
+    try {
+      const response = await fetch("components/header.html");
+
+      if (!response.ok) {
+        throw new Error("Could not load header");
+      }
+
+      header.innerHTML = await response.text();
+
+      const searchInput = document.getElementById("siteSearch");
+      const searchButton = document.getElementById("siteSearchButton");
+
+      function performSiteSearch() {
+        const query = searchInput?.value.trim();
+
+        if (query) {
+          window.location.href =
+            "search.html?q=" + encodeURIComponent(query);
+        }
+      }
+
+      searchButton?.addEventListener("click", performSiteSearch);
+
+      searchInput?.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          performSiteSearch();
+        }
+      });
+
+    } catch (error) {
+      console.error("Header failed to load:", error);
+    }
+  }
+
+  if (footer) {
+    try {
+      const response = await fetch("components/footer.html");
+
+      if (!response.ok) {
+        throw new Error("Could not load footer");
+      }
+
+      footer.innerHTML = await response.text();
+
+    } catch (error) {
+      console.error("Footer failed to load:", error);
+    }
+  }
+}
+
+loadSiteComponents();
 const categories = [
   ["Gaming", "gaming", "Gaming deals", "gaming.html"],
   ["Computing", "computing", "Computing, laptop and monitor deals", "computing.html"],
