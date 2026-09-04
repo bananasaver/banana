@@ -1,22 +1,29 @@
-BANANA SAVER — FINAL FRONT-END CHANGE SET
+BANANA SAVER — FINAL FRONT-END CLEAN FIX
 
-This package is built from the current working front-end baseline and applies the approved final visual/content changes.
+This package contains the complete HTML front-end pages plus style.css for the current Banana Saver site.
 
-Replace the HTML files, style.css, app.js and deals.json in the repository with the matching files here.
-Do NOT delete or replace your existing product assets.
+Use these files to replace the corresponding HTML files and style.css in the repository.
 
-Mascot:
-- The site uses ONE mascot only: assets/banana-mascot-peeled.png
-- All banana-mascot-clean references have been removed from the HTML.
-- No mascot placeholder/dashed box is used.
+DO NOT replace:
+- app.js
+- deals.json
+- assets/
 
-Navbar:
-- BANANA SAVER is one line on every page.
-- The same navbar structure is used throughout.
-- The brand is set to use Cinema Outfit when that font is available, with a cursive fallback.
+Mascot rules:
+- Homepage: normal mascot only (assets/banana-mascot-clean.png)
+- Deal/category pages: peeled mascot position (assets/banana-mascot-peeled.png)
+- Latest Tech News: no mascot
+- Latest Tech Reviews / individual review: no mascot
+- Other information/footer pages: normal mascot
 
-Footer:
-- Existing approved footer structure/spacing is preserved.
+The peeled mascot position is invisible until assets/banana-mascot-peeled.png exists. There is no dashed placeholder or question-mark box.
 
-Note:
-Cinema Outfit is not a Google-hosted webfont. The CSS requests the family by name; for guaranteed rendering on all devices, a properly licensed Cinema Outfit webfont can be added later.
+Other fixes:
+- BANANA SAVER branding throughout
+- no banana icon in nav/footer
+- category headings no longer say BANANA CATEGORY
+- Mobile & Wearables is used for phones/tablets/wearables
+- deal pages have no Banana rating/verdict
+- review ratings remain on review pages
+- footer spacing is deliberately kept open and readable
+- internal hero banners use the same Banana yellow
