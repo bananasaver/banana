@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="banana-final.css">
 <style>
 .page-main{max-width:1100px;margin:0 auto;padding:50px 20px 70px}
 .page-hero{background:#fff9d6;border-radius:20px;padding:36px 40px;margin-bottom:24px}
@@ -47,6 +48,24 @@
 }
 @media(max-width:450px){.site-footer .footer-inner{grid-template-columns:1fr}}
 </style>
+<style id="banana-final-overrides">
+/* Banana Saver final visual pass: deliberately scoped; existing footer/layout remains untouched. */
+.site-header .brand span{display:block!important}
+.site-header .brand strong,.site-header .brand em{display:inline!important;font-family:Arial,Helvetica,sans-serif!important;font-style:normal!important;white-space:nowrap!important}
+.site-header .brand em{margin-left:5px!important}
+.site-header .brand small{display:block!important}
+.search-wrap input{color:#111!important;-webkit-text-fill-color:#111!important}
+.search-wrap input::placeholder{color:#555!important;opacity:1}
+.peeled-hero-mascot{position:absolute!important;right:4%!important;top:50%!important;transform:translateY(-50%)!important;width:min(300px,34%)!important;display:flex!important;justify-content:center!important;align-items:center!important;pointer-events:none!important}
+.peeled-hero-mascot img{display:block!important;width:100%!important;height:auto!important;max-height:310px!important;object-fit:contain!important}
+.peeled-hero-mascot.missing{display:none!important}
+.page-hero{position:relative!important}
+.page-hero{width:100%!important;box-sizing:border-box!important}
+.editorial-page-banner,.deal-page-banner{width:100%!important;box-sizing:border-box!important}
+.ad-slot{min-height:120px;margin:28px 0;border-radius:14px;background:transparent}
+@media(max-width:800px){.peeled-hero-mascot{width:210px!important;right:2%!important}.page-hero{padding-right:190px!important}}
+@media(max-width:520px){.peeled-hero-mascot{width:145px!important;opacity:.98}.page-hero{padding-right:130px!important}}
+</style>
 </head>
 <body>
 
@@ -70,7 +89,7 @@
 </header>
 
 <main class="page-main">
-<section class="page-hero"><div class="normal-hero-mascot" aria-hidden="true"><img src="assets/banana-mascot-clean.png" alt=""></div><p class="page-kicker">HOW BANANA WORKS</p><h1>How It Works</h1></section>
+<section class="page-hero"><div class="normal-hero-mascot" aria-hidden="true"><img src="assets/banana-mascot-peeled.png" alt=""></div><p class="page-kicker">HOW BANANA WORKS</p><h1>How It Works</h1></section>
 
 <section class="page-card">
 <h2>Finding the deals</h2>
@@ -94,7 +113,7 @@
     <div class="footer-main">
       <div class="footer-brand"><strong>BANANA SAVER</strong></div>
       <p class="footer-tagline">Peeling Back The Prices.</p>
-      <p class="footer-description">We find the best UK tech and gaming deals so you don't have to.</p>
+      <p class="footer-description">We find the best deals so you don't have to.</p>
     </div>
 
     <nav class="footer-column" aria-label="Explore Banana Saver">

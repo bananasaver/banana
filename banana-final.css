@@ -1,0 +1,20 @@
+/* Banana Saver final visual patch — load AFTER style.css. */
+.site-header .brand span{display:block!important}
+.site-header .brand strong,.site-header .brand em{display:inline!important;font-family:Arial,Helvetica,sans-serif!important;font-style:normal!important;white-space:nowrap!important}
+.site-header .brand em{margin-left:5px!important}
+.site-header .brand small{display:block!important}
+.search-wrap input{color:#111!important;-webkit-text-fill-color:#111!important}
+.search-wrap input::placeholder{color:#555!important;opacity:1}
+.page-hero{position:relative!important;width:100%!important;box-sizing:border-box!important}
+.peeled-hero-mascot{position:absolute!important;right:4%!important;top:50%!important;transform:translateY(-50%)!important;width:min(300px,34%)!important;display:flex!important;justify-content:center!important;align-items:center!important;pointer-events:none!important}
+.peeled-hero-mascot img{display:block!important;width:100%!important;height:auto!important;max-height:320px!important;object-fit:contain!important}
+.peeled-hero-mascot.missing{display:none!important}
+/* Information pages that still have the old clean-mascot wrapper use the same peeled asset without changing footer layout. */
+.normal-hero-mascot img{display:none!important}
+.normal-hero-mascot{position:absolute!important;right:4%!important;top:50%!important;transform:translateY(-50%)!important;width:min(300px,34%)!important;height:100%!important;background:url('assets/banana-mascot-peeled.png') center/contain no-repeat!important;pointer-events:none!important}
+.page-hero:has(.normal-hero-mascot){padding-right:min(34%,300px)!important}
+/* Editorial/deal banner and clean ad breathing room. */
+.editorial-list,.category-grid,.deal-card-pro{position:relative}
+.ad-slot{min-height:120px;margin:28px 0;border-radius:14px;background:transparent}
+@media(max-width:800px){.peeled-hero-mascot,.normal-hero-mascot{width:210px!important;right:2%!important}.page-hero:has(.normal-hero-mascot){padding-right:190px!important}}
+@media(max-width:520px){.peeled-hero-mascot,.normal-hero-mascot{width:145px!important}.page-hero:has(.normal-hero-mascot){padding-right:130px!important}}

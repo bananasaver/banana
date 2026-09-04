@@ -1,29 +1,10 @@
-BANANA SAVER — FINAL FRONT-END CLEAN FIX
+BANANA SAVER — FINAL VISUAL PASS FROM ROLLED-BACK BASELINE
 
-This package contains the complete HTML front-end pages plus style.css for the current Banana Saver site.
+Built from the actual rolled-back HTML files available in the conversation.
 
-Use these files to replace the corresponding HTML files and style.css in the repository.
+Replace the supplied HTML files and add banana-final.css beside them.
+Do NOT replace your existing style.css, deals.json, assets folder, or any other existing files.
 
-DO NOT replace:
-- app.js
-- deals.json
-- assets/
+The existing peeled mascot is expected at assets/banana-mascot-peeled.png.
 
-Mascot rules:
-- Homepage: normal mascot only (assets/banana-mascot-clean.png)
-- Deal/category pages: peeled mascot position (assets/banana-mascot-peeled.png)
-- Latest Tech News: no mascot
-- Latest Tech Reviews / individual review: no mascot
-- Other information/footer pages: normal mascot
-
-The peeled mascot position is invisible until assets/banana-mascot-peeled.png exists. There is no dashed placeholder or question-mark box.
-
-Other fixes:
-- BANANA SAVER branding throughout
-- no banana icon in nav/footer
-- category headings no longer say BANANA CATEGORY
-- Mobile & Wearables is used for phones/tablets/wearables
-- deal pages have no Banana rating/verdict
-- review ratings remain on review pages
-- footer spacing is deliberately kept open and readable
-- internal hero banners use the same Banana yellow
+The existing product/deal loading and links are preserved. The existing footer styling is not rewritten.
