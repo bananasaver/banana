@@ -218,3 +218,59 @@ footer { background:#111; color:#ddd; padding:30px 6%; margin-top:30px; }.footer
   .page-hero{padding-right:24px;min-height:165px;}
   .peeled-hero-mascot,.normal-hero-mascot{display:none;}
 }
+
+/* BANANA SAVER — CURRENT APPROVED CHANGES */
+
+/* 1. Navbar logo: BANANA SAVER on one line, yellow, no box */
+.site-header .brand strong {
+  display: inline !important;
+  color: var(--yellow) !important;
+  background: none !important;
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px !important;
+}
+
+.site-header .brand em {
+  display: inline !important;
+  background: none !important;
+  color: var(--yellow) !important;
+  font-family: Inter, Arial, sans-serif !important;
+  font-style: normal !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  padding: 0 !important;
+  margin: 0 0 0 5px !important;
+  letter-spacing: -1px !important;
+}
+
+/* 2. Mascot: larger and raised */
+.hero-mascot {
+  height: 420px !important;
+  bottom: 18px !important;
+}
+
+/* 3. Remove the old real-deals / real-savings sticker */
+.price-burst {
+  display: none !important;
+}
+
+/* 4. Keep mascot positioned cleanly */
+.hero-art {
+  height: 100% !important;
+}
+
+@media (max-width: 700px) {
+  .hero-mascot {
+    height: 340px !important;
+    bottom: 12px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .hero-mascot {
+    height: 300px !important;
+    bottom: 8px !important;
+  }
+}
