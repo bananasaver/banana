@@ -1,85 +1,270 @@
-async function loadSiteComponents() {
-  const header = document.getElementById("site-header");
-  const footer = document.getElementById("site-footer");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  if (header) {
-    try {
-      const response = await fetch("components/header.html");
+  <title>Banana Saver — Peeling Back The Prices</title>
+  <meta name="description" content="Banana Saver finds the best tech deals so you don't have to.">
 
-      if (!response.ok) {
-        throw new Error("Could not load header");
-      }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-      header.innerHTML = await response.text();
+  <link rel="stylesheet" href="style.css">
+</head>
 
-      const searchInput = document.getElementById("siteSearch");
-      const searchButton = document.getElementById("siteSearchButton");
+<body>
 
-      function performSiteSearch() {
-        const query = searchInput?.value.trim();
+  <!-- Shared navigation -->
+  <div id="site-header"></div>
 
-        if (query) {
-          window.location.href =
-            "search.html?q=" + encodeURIComponent(query);
-        }
-      }
+  <div class="trust-strip">
+    <div>
+      <span class="trust-icon">£</span>
+      <strong>Best Prices</strong>
+      <small>We compare so you save more</small>
+    </div>
 
-      searchButton?.addEventListener("click", performSiteSearch);
+    <div>
+      <span class="trust-icon">★</span>
+      <strong>Top Brands</strong>
+      <small>All the brands you love</small>
+    </div>
 
-      searchInput?.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          performSiteSearch();
-        }
-      });
+    <div>
+      <span class="trust-icon">✓</span>
+      <strong>Trusted Retailers</strong>
+      <small>Deals from retailers you can buy from</small>
+    </div>
+  </div>
 
-    } catch (error) {
-      console.error("Header failed to load:", error);
-    }
-  }
+  <main id="top">
 
-  if (footer) {
-    try {
-      const response = await fetch("components/footer.html");
+    <section class="hero">
 
-      if (!response.ok) {
-        throw new Error("Could not load footer");
-      }
+      <div class="hero-copy">
+        <p class="eyebrow">UK TECH &amp; GAMING DEALS</p>
 
-      footer.innerHTML = await response.text();
+        <h1>
+          PEELING BACK<br>
+          <span>THE PRICES</span>
+        </h1>
 
-    } catch (error) {
-      console.error("Footer failed to load:", error);
-    }
-  }
-}
+        <p>We find the best tech deals so you don't have to.</p>
 
-loadSiteComponents();
-const categories = [
-  ["Gaming", "gaming", "Gaming deals", "gaming.html"],
-  ["Computing", "computing", "Computing, laptop and monitor deals", "computing.html"],
-  ["Phones & Wearables", "phones", "Phones, smartwatches and wearable tech", "phones.html"],
-  ["Sound & Vision", "sound", "TVs, headphones, speakers and more", "sound-vision.html"],
-  ["Home & Smart Tech", "home", "Smart appliances and connected home technology", "home-smart-tech.html"]
-];
-let allDeals=[];
-const categoriesEl=document.getElementById('categories');
-const grid=document.getElementById('dealGrid');
-const searchInput=document.getElementById('searchInput');
-const searchBtn=document.getElementById('searchBtn');
-const clearSearch=document.getElementById('clearSearch');
-const noResults=document.getElementById('noResults');
-function categoryIcon(type){const icons={
- gaming:`<svg viewBox="0 0 120 82" aria-hidden="true"><path d="M28 27c6-10 17-14 32-14s26 4 32 14l10 28c2 7-3 14-10 14-5 0-8-3-12-9l-5-7H45l-5 7c-4 6-7 9-12 9-7 0-12-7-10-14z" fill="#151515"/><path d="M38 36h16M46 28v16" stroke="#ffd400" stroke-width="4" stroke-linecap="round"/><circle cx="79" cy="31" r="4" fill="#ff4b55"/><circle cx="89" cy="38" r="4" fill="#4b8cff"/><circle cx="79" cy="45" r="4" fill="#ffd400"/><circle cx="69" cy="38" r="4" fill="#69c96b"/></svg>`,
- computing:`<svg viewBox="0 0 100 72" aria-hidden="true"><rect x="20" y="10" width="60" height="40" rx="4" fill="#222"/><rect x="25" y="15" width="50" height="30" rx="2" fill="#e9f4ff"/><path d="M12 55h76l-7 7H19z" fill="#111"/><path d="M45 55h10" stroke="#ffd400" stroke-width="3" stroke-linecap="round"/></svg>`,
- phones:`<svg viewBox="0 0 100 72" aria-hidden="true"><rect x="27" y="8" width="31" height="56" rx="6" fill="#111"/><rect x="31" y="14" width="23" height="43" rx="3" fill="#e9f4ff"/><circle cx="73" cy="36" r="19" fill="#111"/><circle cx="73" cy="36" r="14" fill="#e9f4ff"/><path d="M73 24v12l8 6" stroke="#ffd400" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
- sound:`<svg viewBox="0 0 100 72" aria-hidden="true"><path d="M27 39V30c0-14 10-23 23-23s23 9 23 23v9" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/><rect x="19" y="34" width="15" height="24" rx="6" fill="#111"/><rect x="66" y="34" width="15" height="24" rx="6" fill="#111"/><path d="M43 28h14v20H43z" fill="#ffd400"/></svg>`,
- home:`<svg viewBox="0 0 100 72" aria-hidden="true"><path d="M13 33 50 8l37 25" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="23" y="31" width="54" height="31" rx="4" fill="#111"/><rect x="31" y="38" width="38" height="17" rx="3" fill="#ffd400"/><circle cx="39" cy="47" r="3" fill="#111"/><circle cx="61" cy="47" r="3" fill="#111"/></svg>`};return icons[type]}
-function renderCategories(){if(!categoriesEl)return;categoriesEl.innerHTML=categories.map(([name,type,description,url])=>`<a class="category" href="${url}" aria-label="${description}"><span class="category-art">${categoryIcon(type)}</span><span class="category-name">${name}</span></a>`).join('')+`<a class="category-arrow" href="deals.html" aria-label="View all deals"><span>→</span></a>`}
-function savingPercent(d){return Math.round(((d.oldPrice-d.price)/d.oldPrice)*100)}
-function renderDeals(deals){if(!grid)return;grid.innerHTML=deals.map(d=>`<article class="deal-card"><span class="badge ${d.badgeClass}">${d.badge}</span><a class="product-image" href="deal.html?id=${d.id}"><img src="${d.image}" alt="${d.name}" loading="lazy"></a><h3>${d.name}</h3><div class="subtitle">${d.subtitle}</div><div class="price">£${d.price.toFixed(2)} <span class="old-price">£${d.oldPrice.toFixed(2)}</span></div><div class="saving">Save £${(d.oldPrice-d.price).toFixed(2)} (${savingPercent(d)}%)</div><div class="card-bottom"><span class="retailer">${d.retailer}</span><a class="view-deal" href="deal.html?id=${d.id}">View Deal</a></div></article>`).join('');if(noResults)noResults.hidden=deals.length!==0}
-function filterDeals(){const term=(searchInput?.value||'').trim().toLowerCase();const filtered=allDeals.filter(d=>`${d.name} ${d.subtitle} ${d.category} ${d.retailer}`.toLowerCase().includes(term));renderDeals(filtered)}
-async function loadDeals(){try{const r=await fetch('deals.json');allDeals=await r.json();renderCategories();renderDeals(allDeals)}catch(e){if(grid)grid.innerHTML='<p>Deal data could not be loaded. Please refresh.</p>'}}
-if(searchBtn)searchBtn.addEventListener('click',()=>{if(searchInput?.value.trim())window.location.href=`search.html?q=${encodeURIComponent(searchInput.value.trim())}`});
-if(searchInput)searchInput.addEventListener('keydown',e=>{if(e.key==='Enter'&&searchInput.value.trim())window.location.href=`search.html?q=${encodeURIComponent(searchInput.value.trim())}`});
-if(clearSearch)clearSearch.addEventListener('click',()=>{window.location.href='deals.html'});
-loadDeals();
+        <a class="hero-btn" href="deals.html">
+          Shop Top Deals <b>→</b>
+        </a>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <img
+          class="hero-mascot"
+          src="assets/banana-mascot-peeled.png"
+          alt=""
+        >
+      </div>
+
+    </section>
+
+    <section class="content-card categories-card" aria-label="Browse categories">
+
+      <div class="category-heading">
+
+        <div class="browse-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"></path>
+          </svg>
+
+          <strong>
+            BROWSE<br>
+            <b>CATEGORIES</b>
+          </strong>
+        </div>
+
+        <div id="categories" class="categories"></div>
+
+      </div>
+
+    </section>
+
+    <section id="deals" class="content-card deals-section">
+
+      <div class="section-title">
+
+        <div>
+          <p class="section-kicker">DEAL OF THE DAY</p>
+          <h2>TOP DEALS RIGHT NOW</h2>
+        </div>
+
+        <button id="clearSearch" class="text-btn">
+          View All Deals <span>→</span>
+        </button>
+
+      </div>
+
+      <div id="dealGrid" class="deal-grid"></div>
+
+      <p id="noResults" class="no-results" hidden>
+        No deals found. Try another search.
+      </p>
+
+    </section>
+
+    <section class="editorial-grid" id="reviews">
+
+      <article class="editorial-panel reviews-panel">
+
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">WHAT'S NEW</p>
+            <h2>LATEST TECH REVIEWS</h2>
+          </div>
+
+          <span class="panel-mark">✦</span>
+        </div>
+
+        <p class="panel-intro">
+          Testing, pricing and real-world use, with rankings included where relevant.
+        </p>
+
+        <div class="review-list">
+
+          <a class="review-item" href="reviews.html">
+            <span class="review-icon vacuum-icon">V</span>
+
+            <span>
+              <strong>Cordless vacuum reviews</strong>
+              <small>
+                Testing, value and which models are worth considering.
+              </small>
+              <b>Read Reviews →</b>
+            </span>
+          </a>
+
+          <a class="review-item" href="reviews.html">
+            <span class="review-icon laptop-icon">L</span>
+
+            <span>
+              <strong>Gaming laptop reviews</strong>
+              <small>
+                Performance, portability, pricing and value.
+              </small>
+              <b>Read Reviews →</b>
+            </span>
+          </a>
+
+          <a class="review-item" href="reviews.html">
+            <span class="review-icon audio-icon">A</span>
+
+            <span>
+              <strong>Audio reviews</strong>
+              <small>
+                Headphones and earbuds tested for everyday use.
+              </small>
+              <b>Read Reviews →</b>
+            </span>
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="editorial-panel news-panel">
+
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">KEEP UP WITH TECH</p>
+            <h2>LATEST TECH NEWS</h2>
+          </div>
+
+          <span class="panel-mark">+</span>
+        </div>
+
+        <p class="panel-intro">
+          Short, useful updates on the products, launches and technology that matter to shoppers.
+        </p>
+
+        <div class="news-list">
+
+          <a class="news-item" href="news.html">
+            <span class="news-date">01</span>
+
+            <span>
+              <strong>What to watch before buying a new gaming laptop</strong>
+              <small>
+                Key changes in performance, screens and pricing.
+              </small>
+            </span>
+          </a>
+
+          <a class="news-item" href="news.html">
+            <span class="news-date">02</span>
+
+            <span>
+              <strong>Smart home tech worth keeping an eye on</strong>
+              <small>
+                Where connected devices are becoming genuinely useful.
+              </small>
+            </span>
+          </a>
+
+          <a class="news-item" href="news.html">
+            <span class="news-date">03</span>
+
+            <span>
+              <strong>Phone and wearable trends</strong>
+              <small>
+                The features that are becoming more important to everyday users.
+              </small>
+            </span>
+          </a>
+
+        </div>
+
+        <a class="news-more" href="news.html">
+          More tech news →
+        </a>
+
+      </article>
+
+    </section>
+
+    <section class="benefits">
+
+      <div>
+        <span class="benefit-icon">B</span>
+        <strong>Peeling Back The Prices</strong>
+        <small>We cut through the noise to bring you the best deals.</small>
+      </div>
+
+      <div>
+        <span class="benefit-icon">↻</span>
+        <strong>Updated Regularly</strong>
+        <small>Prices change. We keep our deals fresh.</small>
+      </div>
+
+      <div>
+        <span class="benefit-icon">★</span>
+        <strong>Top Brands Only</strong>
+        <small>Quality tech &amp; gaming gear from brands you trust.</small>
+      </div>
+
+      <div>
+        <span class="benefit-icon">£</span>
+        <strong>Save More</strong>
+        <small>More saving. More gaming. More banana.</small>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Shared footer -->
+  <div id="site-footer"></div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
