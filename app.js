@@ -1,270 +1,424 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+const categories = [
+  ["Gaming", "gaming", "Gaming deals", "gaming.html"],
+  ["Computing", "computing", "Computing, laptop and monitor deals", "computing.html"],
+  ["Phones", "phones", "Phone deals", "phones.html"],
+  ["Wearables", "wearables", "Smartwatch and wearable tech deals", "wearables.html"],
+  ["Sound & Vision", "sound", "TVs, headphones, speakers and more", "sound-vision.html"],
+  ["Home & Smart Tech", "home", "Smart appliances and connected home technology", "home-smart-tech.html"]
+];
 
-  <title>Banana Saver — Peeling Back The Prices</title>
-  <meta name="description" content="Banana Saver finds the best tech deals so you don't have to.">
+let allDeals = [];
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+const categoriesEl = document.getElementById("categories");
+const grid = document.getElementById("dealGrid");
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const clearSearch = document.getElementById("clearSearch");
+const noResults = document.getElementById("noResults");
 
-  <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
+/* =========================================================
+   APPROVED CATEGORY ICONS
+   Do not replace or restyle these icons.
+   ========================================================= */
 
-  <!-- Shared navigation -->
-  <div id="site-header"></div>
+function categoryIcon(type) {
 
-  <div class="trust-strip">
-    <div>
-      <span class="trust-icon">£</span>
-      <strong>Best Prices</strong>
-      <small>We compare so you save more</small>
-    </div>
+  const icons = {
 
-    <div>
-      <span class="trust-icon">★</span>
-      <strong>Top Brands</strong>
-      <small>All the brands you love</small>
-    </div>
+    gaming: `
+      <svg viewBox="0 0 120 82" aria-hidden="true">
+        <path
+          d="M28 27c6-10 17-14 32-14s26 4 32 14l10 28c2 7-3 14-10 14-5 0-8-3-12-9l-5-7H45l-5 7c-4 6-7 9-12 9-7 0-12-7-10-14z"
+          fill="#151515"
+        />
+        <path
+          d="M38 36h16M46 28v16"
+          stroke="#ffd400"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+        <circle cx="79" cy="31" r="4" fill="#ff4b55"/>
+        <circle cx="89" cy="38" r="4" fill="#4b8cff"/>
+        <circle cx="79" cy="45" r="4" fill="#ffd400"/>
+        <circle cx="69" cy="38" r="4" fill="#69c96b"/>
+      </svg>
+    `,
 
-    <div>
-      <span class="trust-icon">✓</span>
-      <strong>Trusted Retailers</strong>
-      <small>Deals from retailers you can buy from</small>
-    </div>
-  </div>
+    computing: `
+      <svg viewBox="0 0 100 72" aria-hidden="true">
+        <rect
+          x="20"
+          y="10"
+          width="60"
+          height="40"
+          rx="4"
+          fill="#222"
+        />
+        <rect
+          x="25"
+          y="15"
+          width="50"
+          height="30"
+          rx="2"
+          fill="#e9f4ff"
+        />
+        <path
+          d="M12 55h76l-7 7H19z"
+          fill="#111"
+        />
+        <path
+          d="M45 55h10"
+          stroke="#ffd400"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+      </svg>
+    `,
 
-  <main id="top">
+    phones: `
+      <svg viewBox="0 0 100 72" aria-hidden="true">
+        <rect
+          x="31"
+          y="6"
+          width="38"
+          height="60"
+          rx="7"
+          fill="#111"
+        />
+        <rect
+          x="35"
+          y="12"
+          width="30"
+          height="48"
+          rx="3"
+          fill="#e9f4ff"
+        />
+        <circle
+          cx="50"
+          cy="62"
+          r="2"
+          fill="#ffd400"
+        />
+      </svg>
+    `,
 
-    <section class="hero">
+    wearables: `
+      <svg viewBox="0 0 100 72" aria-hidden="true">
+        <rect
+          x="38"
+          y="8"
+          width="24"
+          height="56"
+          rx="8"
+          fill="#111"
+        />
+        <rect
+          x="34"
+          y="18"
+          width="32"
+          height="36"
+          rx="8"
+          fill="#111"
+        />
+        <rect
+          x="40"
+          y="24"
+          width="20"
+          height="24"
+          rx="4"
+          fill="#e9f4ff"
+        />
+        <path
+          d="M50 29v7l5 3"
+          stroke="#ffd400"
+          stroke-width="3"
+          fill="none"
+          stroke-linecap="round"
+        />
+      </svg>
+    `,
 
-      <div class="hero-copy">
-        <p class="eyebrow">UK TECH &amp; GAMING DEALS</p>
+    sound: `
+      <svg viewBox="0 0 100 72" aria-hidden="true">
+        <path
+          d="M27 39V30c0-14 10-23 23-23s23 9 23 23v9"
+          fill="none"
+          stroke="#111"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+        <rect
+          x="19"
+          y="34"
+          width="15"
+          height="24"
+          rx="6"
+          fill="#111"
+        />
+        <rect
+          x="66"
+          y="34"
+          width="15"
+          height="24"
+          rx="6"
+          fill="#111"
+        />
+        <path
+          d="M43 28h14v20H43z"
+          fill="#ffd400"
+        />
+      </svg>
+    `,
 
-        <h1>
-          PEELING BACK<br>
-          <span>THE PRICES</span>
-        </h1>
+    home: `
+      <svg viewBox="0 0 100 72" aria-hidden="true">
+        <path
+          d="M13 33 50 8l37 25"
+          fill="none"
+          stroke="#111"
+          stroke-width="7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <rect
+          x="23"
+          y="31"
+          width="54"
+          height="31"
+          rx="4"
+          fill="#111"
+        />
+        <rect
+          x="31"
+          y="38"
+          width="38"
+          height="17"
+          rx="3"
+          fill="#ffd400"
+        />
+        <circle cx="39" cy="47" r="3" fill="#111"/>
+        <circle cx="61" cy="47" r="3" fill="#111"/>
+      </svg>
+    `
+  };
 
-        <p>We find the best tech deals so you don't have to.</p>
+  return icons[type] || "";
+}
 
-        <a class="hero-btn" href="deals.html">
-          Shop Top Deals <b>→</b>
-        </a>
-      </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <img
-          class="hero-mascot"
-          src="assets/banana-mascot-peeled.png"
-          alt=""
+/* =========================================================
+   CATEGORY BAR
+   Six categories + yellow arrow box
+   ========================================================= */
+
+function renderCategories() {
+
+  if (!categoriesEl) return;
+
+  categoriesEl.innerHTML =
+    categories
+      .map(([name, type, description, url]) => `
+        <a
+          class="category"
+          href="${url}"
+          aria-label="${description}"
         >
-      </div>
+          <span class="category-art">
+            ${categoryIcon(type)}
+          </span>
 
-    </section>
+          <span class="category-name">
+            ${name}
+          </span>
+        </a>
+      `)
+      .join("") +
 
-    <section class="content-card categories-card" aria-label="Browse categories">
+    `
+      <a
+        class="category-arrow"
+        href="deals.html"
+        aria-label="View all deals"
+      >
+        <span>→</span>
+      </a>
+    `;
+}
 
-      <div class="category-heading">
 
-        <div class="browse-box">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"></path>
-          </svg>
+/* =========================================================
+   DEALS
+   ========================================================= */
 
-          <strong>
-            BROWSE<br>
-            <b>CATEGORIES</b>
-          </strong>
-        </div>
+function savingPercent(d) {
 
-        <div id="categories" class="categories"></div>
+  return Math.round(
+    ((d.oldPrice - d.price) / d.oldPrice) * 100
+  );
 
-      </div>
+}
 
-    </section>
 
-    <section id="deals" class="content-card deals-section">
+function renderDeals(deals) {
 
-      <div class="section-title">
+  if (!grid) return;
 
-        <div>
-          <p class="section-kicker">DEAL OF THE DAY</p>
-          <h2>TOP DEALS RIGHT NOW</h2>
-        </div>
+  grid.innerHTML = deals
+    .map(d => `
+      <article class="deal-card">
 
-        <button id="clearSearch" class="text-btn">
-          View All Deals <span>→</span>
-        </button>
+        <span class="badge ${d.badgeClass}">
+          ${d.badge}
+        </span>
 
-      </div>
-
-      <div id="dealGrid" class="deal-grid"></div>
-
-      <p id="noResults" class="no-results" hidden>
-        No deals found. Try another search.
-      </p>
-
-    </section>
-
-    <section class="editorial-grid" id="reviews">
-
-      <article class="editorial-panel reviews-panel">
-
-        <div class="panel-heading">
-          <div>
-            <p class="section-kicker">WHAT'S NEW</p>
-            <h2>LATEST TECH REVIEWS</h2>
-          </div>
-
-          <span class="panel-mark">✦</span>
-        </div>
-
-        <p class="panel-intro">
-          Testing, pricing and real-world use, with rankings included where relevant.
-        </p>
-
-        <div class="review-list">
-
-          <a class="review-item" href="reviews.html">
-            <span class="review-icon vacuum-icon">V</span>
-
-            <span>
-              <strong>Cordless vacuum reviews</strong>
-              <small>
-                Testing, value and which models are worth considering.
-              </small>
-              <b>Read Reviews →</b>
-            </span>
-          </a>
-
-          <a class="review-item" href="reviews.html">
-            <span class="review-icon laptop-icon">L</span>
-
-            <span>
-              <strong>Gaming laptop reviews</strong>
-              <small>
-                Performance, portability, pricing and value.
-              </small>
-              <b>Read Reviews →</b>
-            </span>
-          </a>
-
-          <a class="review-item" href="reviews.html">
-            <span class="review-icon audio-icon">A</span>
-
-            <span>
-              <strong>Audio reviews</strong>
-              <small>
-                Headphones and earbuds tested for everyday use.
-              </small>
-              <b>Read Reviews →</b>
-            </span>
-          </a>
-
-        </div>
-
-      </article>
-
-      <article class="editorial-panel news-panel">
-
-        <div class="panel-heading">
-          <div>
-            <p class="section-kicker">KEEP UP WITH TECH</p>
-            <h2>LATEST TECH NEWS</h2>
-          </div>
-
-          <span class="panel-mark">+</span>
-        </div>
-
-        <p class="panel-intro">
-          Short, useful updates on the products, launches and technology that matter to shoppers.
-        </p>
-
-        <div class="news-list">
-
-          <a class="news-item" href="news.html">
-            <span class="news-date">01</span>
-
-            <span>
-              <strong>What to watch before buying a new gaming laptop</strong>
-              <small>
-                Key changes in performance, screens and pricing.
-              </small>
-            </span>
-          </a>
-
-          <a class="news-item" href="news.html">
-            <span class="news-date">02</span>
-
-            <span>
-              <strong>Smart home tech worth keeping an eye on</strong>
-              <small>
-                Where connected devices are becoming genuinely useful.
-              </small>
-            </span>
-          </a>
-
-          <a class="news-item" href="news.html">
-            <span class="news-date">03</span>
-
-            <span>
-              <strong>Phone and wearable trends</strong>
-              <small>
-                The features that are becoming more important to everyday users.
-              </small>
-            </span>
-          </a>
-
-        </div>
-
-        <a class="news-more" href="news.html">
-          More tech news →
+        <a
+          class="product-image"
+          href="deal.html?id=${d.id}"
+        >
+          <img
+            src="${d.image}"
+            alt="${d.name}"
+            loading="lazy"
+          >
         </a>
 
+        <h3>
+          ${d.name}
+        </h3>
+
+        <div class="subtitle">
+          ${d.subtitle}
+        </div>
+
+        <div class="price">
+          £${d.price.toFixed(2)}
+
+          <span class="old-price">
+            £${d.oldPrice.toFixed(2)}
+          </span>
+        </div>
+
+        <div class="saving">
+          Save £${(d.oldPrice - d.price).toFixed(2)}
+          (${savingPercent(d)}%)
+        </div>
+
+        <div class="card-bottom">
+
+          <span class="retailer">
+            ${d.retailer}
+          </span>
+
+          <a
+            class="view-deal"
+            href="deal.html?id=${d.id}"
+          >
+            View Deal
+          </a>
+
+        </div>
+
       </article>
+    `)
+    .join("");
 
-    </section>
+  if (noResults) {
+    noResults.hidden = deals.length !== 0;
+  }
+}
 
-    <section class="benefits">
 
-      <div>
-        <span class="benefit-icon">B</span>
-        <strong>Peeling Back The Prices</strong>
-        <small>We cut through the noise to bring you the best deals.</small>
-      </div>
+/* =========================================================
+   LOAD DEALS
+   ========================================================= */
 
-      <div>
-        <span class="benefit-icon">↻</span>
-        <strong>Updated Regularly</strong>
-        <small>Prices change. We keep our deals fresh.</small>
-      </div>
+async function loadDeals() {
 
-      <div>
-        <span class="benefit-icon">★</span>
-        <strong>Top Brands Only</strong>
-        <small>Quality tech &amp; gaming gear from brands you trust.</small>
-      </div>
+  try {
 
-      <div>
-        <span class="benefit-icon">£</span>
-        <strong>Save More</strong>
-        <small>More saving. More gaming. More banana.</small>
-      </div>
+    const response = await fetch("deals.json");
 
-    </section>
+    allDeals = await response.json();
 
-  </main>
+    renderCategories();
 
-  <!-- Shared footer -->
-  <div id="site-footer"></div>
+    renderDeals(allDeals);
 
-  <script src="app.js"></script>
+  } catch (error) {
 
-</body>
-</html>
+    if (grid) {
+
+      grid.innerHTML =
+        "<p>Deal data could not be loaded. Please refresh.</p>";
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+if (searchBtn) {
+
+  searchBtn.addEventListener("click", () => {
+
+    const value = searchInput?.value.trim();
+
+    if (value) {
+
+      window.location.href =
+        `search.html?q=${encodeURIComponent(value)}`;
+
+    }
+
+  });
+
+}
+
+
+if (searchInput) {
+
+  searchInput.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Enter" &&
+      searchInput.value.trim()
+    ) {
+
+      window.location.href =
+        `search.html?q=${encodeURIComponent(
+          searchInput.value.trim()
+        )}`;
+
+    }
+
+  });
+
+}
+
+
+/* =========================================================
+   VIEW ALL DEALS
+   ========================================================= */
+
+if (clearSearch) {
+
+  clearSearch.addEventListener("click", () => {
+
+    window.location.href = "deals.html";
+
+  });
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+loadDeals();
